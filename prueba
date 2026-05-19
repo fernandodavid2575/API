@@ -1,0 +1,9 @@
+{
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "email": "juan.perez@example.com",
+    "telefono": 55512345,
+    "direccion": "5a Avenida 10-25, Zona 1, Guatemala",
+    "fecha_ingreso": "2024-03-15",
+    "estado": 1
+}
