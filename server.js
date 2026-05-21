@@ -7,12 +7,14 @@ const db = require('./app/config/db.config.js');
 // Sincroniza sin borrar datos existentes
 db.sequelize.sync().then(() => {
   console.log('Base de datos sincronizada');
+}).catch((err) => {
+  console.log('Error al sincronizar BD:', err.message);
 }); 
 
 let router = require('./app/routers/router.js');
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: '*',
   optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions));
@@ -23,7 +25,8 @@ app.get("/",(req,res) => {
 })
 
 // Create a Server
-const server = app.listen(8080, function () {
+const PORT = process.env.PORT || 8080;
+const server = app.listen(PORT, '0.0.0.0', function () {
   let host = server.address().address
   let port = server.address().port
   console.log("App listening at http://%s:%s", host, port); 
